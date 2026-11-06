@@ -21,3 +21,12 @@ A RESTful backend API built with Node.js, Express, TypeScript, and Supabase Post
    ```bash
    pnpm dev
    ```
+   ## API Endpoints
+
+| Method | Endpoint | Description | Success Status |
+|---|---|---|---|
+| GET | /students | Retrieve all student records | 200 OK |
+| GET | /students/:id | Retrieve one student by ID | 200 OK |
+| POST | /students | Create a new student record | 201 Created |
+| PUT | /students/:id | Update a student record | 200 OK |
+| DELETE | /students/:id | Delete a student record | 200 OK |
