@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "", 
   "license": "ISC",
   "devEngines": {
     "packageManager": {
@@ -16,7 +16,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
