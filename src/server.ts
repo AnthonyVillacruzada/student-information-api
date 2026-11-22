@@ -1,10 +1,9 @@
-
 import express from 'express';
-import { nextTick } from 'node:process';
 import studentRoutes from './routes/studentRoutes.js';
 
 const app = express();
 
+// Log every request
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path}`);
   next();
@@ -12,23 +11,20 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-
-
-
-
-app.use('/students', studentRoutes);
-
-
-
- app.use((req, res) => {
-  res.status(404).json({
-    message: 'Route not found',
-  });
+// Health‑check endpoint
+app.get('/', (req, res) => {
+  res.json({ message: 'Student API is running' });
 });
 
+// API routes
+app.use('/students', studentRoutes);
 
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ message: 'Route not found' });
+});
 
-
-app.listen(4000, () => {
-  console.log(`Server is running on my http://localhost:4000`);
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
